@@ -1,0 +1,24 @@
+{
+    "name": "pixivスタンプ",
+        "version": "0.0.1",
+        "manifest_version": 2,
+        "description": "pixivのスタンプ機能です",
+        "browser_action": {
+            "default_icon": "icon.png",
+            "default_title": "pixivスタンプ"
+        },
+        "permissions": [ 
+            "http://henteko07.com:4000/*",
+            "http://www.pixiv.net/*",
+            "https://www.pixiv.net/*"
+        ],
+        "content_scripts": [
+        {
+            "matches": ["http://www.pixiv.net/member_illust.php*"],
+            "css": ["main.css"],
+            "js": ["jquery.min.js","main.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "content_security_policy": "script-src 'self'; object-src 'self'"
+}
