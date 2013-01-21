@@ -57,6 +57,7 @@ function setStamp(data, new_flag) {
             class: "stamped_icon",
             src: data[id].stamp.stamp_icon_url
         });
+        $img.css("width", "35px");
 
         //$link.append($user_icon_img);
         $link.append($img);
