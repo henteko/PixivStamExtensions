@@ -16,3 +16,7 @@
 .stamed_icon {
     width: 35px;
 }
+
+.stamp_icon {
+    cursor: pointer;
+}

@@ -71,8 +71,17 @@ function setStamp(data, new_flag) {
 
 //スタンプリストをセットします
 function setStampList(data) {
-    var $works_display = $("div.works_display");
+    var $profile_area = $(".profile_area");
     var $stamp_list = $("<div>", {class: "stamp_list"});
+
+    var $area_new = $("<div>", {class: "area_new"});
+    var $area_title = $("<div>", {class: "area_title"});
+    $area_title.text("スタンプ一覧");
+    var $area_inside = $("<div>", {class: "area_inside"});
+
+    $area_new.append($area_title);
+    $area_new.append($area_inside);
+
     $.each(data, function(id) {
         var $img = $("<img>", {
             class: "stamp_icon",
@@ -90,10 +99,12 @@ function setStampList(data) {
                 postStamp(pixiv_user, pixiv_context, self); 
             }
         });
-        $stamp_list.append($img);
+        $area_inside.append($img);
     });
 
-    $works_display.append($stamp_list);
+    $stamp_list.append($area_new);
+
+    $profile_area.after($stamp_list);
 }
 
 //スタンプを投稿します
@@ -120,6 +131,7 @@ function postStamp(pixiv_user, pixiv_context, self) {
                     "stamp": {"stamp_icon_url": $(self).attr("src")}
                 }];
                 setStamp(new_data, true);
+                alert("スタンプを投稿しました");
             }
         });
     });
