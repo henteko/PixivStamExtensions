@@ -1,3 +1,7 @@
+div.stamp {
+    text-align: center;
+}
+
 .stamped_list {
     min-height:64px;
     margin-top:30px;
@@ -34,6 +38,6 @@ a.stamp_user_icon img {
 }
 
 .stamp_icon {
-    width: 30px;
+    width: 60px;
     cursor: pointer;
 }

@@ -16,6 +16,11 @@ $(document).ready(function () {
         var pixiv_user = $.parseJSON($("#toPixivData").attr("data-pixivuser"));
         var pixiv_context =  $.parseJSON($("#toPixivData").attr("data-pixivcontext"));
 
+        var $stamp = $("<div>", {
+            class: "stamp"
+        });
+        $(".works_display").after($stamp);
+        
         $.getJSON(BASE_URL + "/stamp_list/", function(data, status) {
             setStampList(data);
         });
@@ -30,7 +35,6 @@ $(document).ready(function () {
 
 //既にあるスタンプをセットします
 function setStamp(data, new_flag) {
-    var $works_display = $("div.works_display");
     var $stamped_list = $("div.stamped_list");
     if($stamped_list.length == 0) {
         $stamped_list = $("<div>", {class: "stamped_list"});
@@ -66,21 +70,19 @@ lass: "stamp_user_icon",
 
         $stamped_list.prepend($user_stamped);
     });
-    $works_display.append($stamped_list);
+    $("div.stamp").append($stamped_list);
 }
 
 //スタンプリストをセットします
 function setStampList(data) {
-    var $profile_area = $(".profile_area");
+    var $stamp_list_button = $("<div>", {
+        class: "ui-button"
+    });
+    $stamp_list_button.text("スタンプを投げる");
+    $("div.stamp").append($stamp_list_button);
+
+    
     var $stamp_list = $("<div>", {class: "stamp_list"});
-
-    var $area_new = $("<div>", {class: "area_new"});
-    var $area_title = $("<div>", {class: "area_title"});
-    $area_title.text("スタンプ一覧");
-    var $area_inside = $("<div>", {class: "area_inside"});
-
-    $area_new.append($area_title);
-    $area_new.append($area_inside);
 
     $.each(data, function(id) {
         var $img = $("<img>", {
@@ -99,12 +101,16 @@ function setStampList(data) {
                 postStamp(pixiv_user, pixiv_context, self); 
             }
         });
-        $area_inside.append($img);
+        $stamp_list.append($img);
     });
 
-    $stamp_list.append($area_new);
+    $stamp_list.css("display", "none");
 
-    $profile_area.after($stamp_list);
+    $stamp_list_button.after($stamp_list);
+    $stamp_list_button.click(function() {
+        $stamp_list.toggle("slow");
+        $stamp_list_button.css("display", "none");
+    });
 }
 
 //スタンプを投稿します
