@@ -47,6 +47,7 @@ function setStamp(data, new_flag) {
         });
 
         /*
+        //ユーザーアイコンの表示
         var $user_icon_img = $("<img>", {
             class: "stamp_user_icon",
             src: data[id].user_icon_url
