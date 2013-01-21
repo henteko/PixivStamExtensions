@@ -1,22 +1,39 @@
-.user_stamped {
-    position: relative;
+.stamped_list {
+    min-height:64px;
+    margin-top:30px;
+    margin-bottom:25px;
+    padding:0px 20px 0px 20px;
 }
 
-.stamp_user_icon {
+.user_stamped {
+    width: 64px;
+    min-height: 64px;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+a.stamped_icon {
+}
+
+.stamped_icon img{
+    background-color: #f5f5f5;
+    width: 60px;
+}
+
+a.stamp_user_icon {
     position: absolute;
-    width: 20px;
-    top: 1px;
-    left: 23px;
+    bottom: -4px;
+    left: -4px;
+}
+
+a.stamp_user_icon img {
+    background-color: #ffffff;
+    width: 30px;
+    height: 30px;
 }
 
 .stamp_icon {
     width: 30px;
-}
-
-.stamed_icon {
-    width: 35px;
-}
-
-.stamp_icon {
     cursor: pointer;
 }
