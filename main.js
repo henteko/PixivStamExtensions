@@ -51,6 +51,7 @@ function setStamp(data, new_flag) {
             class: "stamp_user_icon",
             src: data[id].user_icon_url
         });
+        $link.append($user_icon_img);
         */
 
         var $img = $("<img>", {
@@ -59,7 +60,6 @@ function setStamp(data, new_flag) {
         });
         $img.css("width", "35px");
 
-        //$link.append($user_icon_img);
         $link.append($img);
 
         $user_stamped.append($link);
@@ -91,6 +91,7 @@ function setStampList(data) {
         });
         $stamp_list.append($img);
     });
+
     $works_display.append($stamp_list);
 }
 

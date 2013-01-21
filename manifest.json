@@ -16,7 +16,7 @@
         {
             "matches": ["http://www.pixiv.net/member_illust.php*"],
             "css": ["main.css"],
-            "js": ["jquery.min.js","main.js"],
+            "js": ["lib/jquery.min.js", "lib/jquery-ui.custom.min.js", "lib/jquery.scrollfollow.js", "main.js"],
             "run_at": "document_start"
         }
     ],
