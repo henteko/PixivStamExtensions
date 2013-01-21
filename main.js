@@ -20,6 +20,13 @@ $(document).ready(function () {
             class: "stamp"
         });
         $(".works_display").after($stamp);
+
+        var $stamp_list_button = $("<div>",{
+            class: "ui-button",
+            id: "stamp_list_button"
+        });
+        $stamp_list_button.text("スタンプを投げる");
+        $stamp.append($stamp_list_button);
         
         $.getJSON(BASE_URL + "/stamp_list/", function(data, status) {
             setStampList(data);
@@ -75,14 +82,10 @@ lass: "stamp_user_icon",
 
 //スタンプリストをセットします
 function setStampList(data) {
-    var $stamp_list_button = $("<div>", {
-        class: "ui-button"
-    });
-    $stamp_list_button.text("スタンプを投げる");
-    $("div.stamp").append($stamp_list_button);
-
-    
+    var $stamp_list_button = $("#stamp_list_button");
+       
     var $stamp_list = $("<div>", {class: "stamp_list"});
+    $stamp_list_button.after($stamp_list);
 
     $.each(data, function(id) {
         var $img = $("<img>", {
@@ -108,7 +111,7 @@ function setStampList(data) {
 
     $stamp_list_button.after($stamp_list);
     $stamp_list_button.click(function() {
-        $stamp_list.toggle("slow");
+        $stamp_list.slideDown("slow");
         $stamp_list_button.css("display", "none");
     });
 }
