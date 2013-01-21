@@ -46,17 +46,19 @@ function setStamp(data, new_flag) {
             href: USER_PAGE_URL + data[id].user_id
         });
 
+        /*
         var $user_icon_img = $("<img>", {
             class: "stamp_user_icon",
             src: data[id].user_icon_url
         });
+        */
 
         var $img = $("<img>", {
             class: "stamped_icon",
             src: data[id].stamp.stamp_icon_url
         });
 
-        $link.append($user_icon_img);
+        //$link.append($user_icon_img);
         $link.append($img);
 
         $user_stamped.append($link);
