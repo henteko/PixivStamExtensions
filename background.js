@@ -1,5 +1,5 @@
 chrome.extension.onMessage.addListener(function(req, sender) {
-    var win = window.open("config.html?" + $.stringify(req));
+    var win = window.open("stamp_info.html?" + $.stringify(req));
     win.focus();
 });
 
