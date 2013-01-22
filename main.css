@@ -49,6 +49,11 @@ div.stamp {
     float: left;
 }
 
+#stamp_plus img{
+    width: 64px;
+    height: 64px;
+}
+
 a.stamped_icon {
 }
 

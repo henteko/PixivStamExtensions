@@ -85,8 +85,27 @@ function setStamp(data, new_flag) {
         $user_stamped.append($stamp_link);
         $user_stamped.append($user_icon);
 
-        $stamped_list.prepend($user_stamped);
+        if(new_flag) {
+            var $stamp_plus = $("#stamp_plus");
+            $stamp_plus.after($user_stamped);
+        }else {
+            $stamped_list.prepend($user_stamped);
+        }
     });
+
+    if(!new_flag) {
+        //+エリアの設定
+        var $user_stamped = $("<span>", {
+            class: "user_stamped",
+            id: "stamp_plus"
+        });
+        var $plus = $("<img>", {
+            src: "http://henteko07.com/pixiv_stamp/plus.png"
+        });
+        $user_stamped.append($plus);
+        $stamped_list.prepend($user_stamped);
+    }
+
     $("div.stamp").append($stamped_list);
 }
 
