@@ -1,0 +1,30 @@
+.stamp_area {
+    text-align: center;
+}
+
+.stamp {
+    width: 200px;
+}
+
+.illust {
+    width: 200px;
+}
+
+.illust_area ul {
+    list-style: none;
+}
+
+.illust_area li {
+    background: #ffffff;
+    border: 1px solid #fff;
+    float: left;
+    margin: 0px 9px 25px 9px;
+    padding: 5px 0;
+    text-align: center;
+    width: 200px;
+}
+
+.illust_area a {
+    text-decoration: none;
+    color: #333333;
+}

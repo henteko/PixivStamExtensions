@@ -59,18 +59,28 @@ function setStamp(data, new_flag) {
         var $user_icon_img = $("<img>", {
             class: "ui-tooltip",
             "data-tooltip": data[id].user_name ? data[id].user_name : "名無しさん",
-lass: "stamp_user_icon",
             src: data[id].user_icon_url
         });
         $user_icon.append($user_icon_img);
-        
+
         var $stamp_link = $("<a>", {
             class: "stamped_icon"
         });
         var $img = $("<img>", {
-            src: data[id].stamp.stamp_icon_url
+            src: data[id].stamp.stamp_icon_url,
+            "stamp_id": data[id].stamp.stamp_id
         });
         $stamp_link.append($img);
+
+        $stamp_link.click(function() {
+            //stamp個別ページへ
+            var stamp_id = $(this).children("img").attr("stamp_id");
+            $.getJSON(BASE_URL + "/stamp_info/" + stamp_id, function(data, status) {
+                chrome.extension.sendMessage(data, function(res) {
+                    console.log(res);
+                });
+            });
+        });
 
         $user_stamped.append($stamp_link);
         $user_stamped.append($user_icon);

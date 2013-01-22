@@ -46,6 +46,7 @@ a.stamped_icon {
 
 .stamped_icon img{
     width: 60px;
+    cursor: pointer;
 }
 
 a.stamp_user_icon {
