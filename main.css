@@ -9,12 +9,36 @@ div.stamp {
     padding:0px 20px 0px 20px;
 }
 
+.stamp_list {
+	position: relative;
+	background: #F2F4F6;
+	padding: 6px;
+}
+.stamp_list:after {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.stamp_list:after {
+	border-color: rgba(242, 244, 246, 0);
+	border-top-color: #F2F4F6;
+	border-width: 15px;
+	left: 50%;
+	margin-left: -360px;
+}
+
 .user_stamped {
     width: 64px;
     min-height: 64px;
     display: inline-block;
     position: relative;
     margin-right: 10px;
+    float: left;
 }
 
 a.stamped_icon {
@@ -32,11 +56,20 @@ a.stamp_user_icon {
 
 a.stamp_user_icon img {
     background-color: #ffffff;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
 }
 
 .stamp_icon {
     width: 60px;
     cursor: pointer;
+    padding: 2px;
+    border-radius: 6px;
+    border: 2px solid #dfebf1;
+    margin-right: 2px;
+    background-color: white;
+}
+.stamp_icon:hover {
+    border-color: #90A6B6;
 }
