@@ -1,13 +1,30 @@
+body {
+}
+
+.contents {
+}
+
+.contents-east {
+    margin: 0;
+    padding: 0;
+}
+
+.info {
+    text-align: center;
+    background-color: #f2f4f6; 
+    font-weight: bold;
+}
+
 .stamp_area {
     text-align: center;
 }
 
 .stamp {
-    width: 200px;
+    width: 120px;
 }
 
 .illust {
-    width: 200px;
+    width: 158px;
 }
 
 .illust_area ul {
@@ -21,7 +38,7 @@
     margin: 0px 9px 25px 9px;
     padding: 5px 0;
     text-align: center;
-    width: 200px;
+    width: 158px;
 }
 
 .illust_area a {

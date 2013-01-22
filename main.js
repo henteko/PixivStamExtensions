@@ -147,7 +147,7 @@ function postStamp(pixiv_user, pixiv_context, self) {
                     "user_icon_url": img_url, 
                     "user_id": pixiv_user.id,
                     "user_name": user_name,
-                    "stamp": {"stamp_icon_url": $(self).attr("src")}
+                    "stamp": {"stamp_icon_url": $(self).attr("src"), "stamp_id": $(self).attr("stamp_id")}
                 }];
                 setStamp(new_data, true);
                 alert("スタンプを投稿しました");
