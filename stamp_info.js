@@ -53,7 +53,7 @@ function jsonParse(string) {
     var json = string;
     json = json.replace("?","");
     json = decodeURI(json);
-    var $json = $.parseJSON(json);
+    var _json = JSON.parse(json);
 
-    return $json;
+    return _json;
 }

@@ -97,6 +97,7 @@ function setStampList(data) {
     var $stamp_list = $("<div>", {class: "stamp_list"});
     $stamp_list_button.after($stamp_list);
 
+    var $list = $("<div>", {class: "list"});
     $.each(data, function(id) {
         var $img = $("<img>", {
             class: "stamp_icon",
@@ -114,9 +115,10 @@ function setStampList(data) {
                 postStamp(pixiv_user, pixiv_context, self); 
             }
         });
-        $stamp_list.append($img);
+        $list.append($img);
     });
 
+    $stamp_list.append($list);
     $stamp_list.css("display", "none");
 
     $stamp_list_button.after($stamp_list);

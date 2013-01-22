@@ -14,6 +14,14 @@ div.stamp {
 	background: #F2F4F6;
 	padding: 6px;
 }
+
+.stamp_list .list {
+    overflow-y: scroll;
+    height: 61px;
+    max-height: 80px;
+    padding: 6px;
+}
+
 .stamp_list:after {
 	top: 100%;
 	border: solid transparent;
