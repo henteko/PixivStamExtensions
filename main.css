@@ -1,10 +1,14 @@
 div.stamp {
-    text-align: center;
+}
+
+#stamp_list_button {
+    /* 仮の位置です。センタリングしたい場合には親要素(div)を追加するとか */
+    margin-left: 20px;
 }
 
 .stamped_list {
     min-height:64px;
-    margin-top:30px;
+    margin-top:15px;
     margin-bottom:25px;
     padding:0px 20px 0px 20px;
 }
@@ -12,12 +16,10 @@ div.stamp {
 .stamp_list {
 	position: relative;
 	background: #F2F4F6;
-	padding: 6px;
 }
 
 .stamp_list .list {
     overflow-y: scroll;
-    height: 61px;
     max-height: 80px;
     padding: 6px;
 }
@@ -37,7 +39,7 @@ div.stamp {
 	border-top-color: #F2F4F6;
 	border-width: 15px;
 	left: 50%;
-	margin-left: -360px;
+	margin-left: -355px;
 }
 
 .user_stamped {
@@ -46,7 +48,6 @@ div.stamp {
     display: inline-block;
     position: relative;
     margin-right: 10px;
-    float: left;
 }
 
 #stamp_plus img{
