@@ -21,12 +21,18 @@ $(document).ready(function () {
         });
         $(".works_display").after($stamp);
 
+        var $stamp_list_button_area = $("<div>", {
+            class: "stamp_list_button_area"
+        });
+
         var $stamp_list_button = $("<div>",{
             class: "ui-button",
             id: "stamp_list_button"
         });
         $stamp_list_button.text("スタンプを投げる");
-        $stamp.append($stamp_list_button);
+        $stamp_list_button_area.append($stamp_list_button);
+
+        $stamp.append($stamp_list_button_area);
         
         $.getJSON(BASE_URL + "/stamp_list/", function(data, status) {
             setStampList(data);

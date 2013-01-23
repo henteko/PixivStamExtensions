@@ -1,9 +1,8 @@
 div.stamp {
 }
 
-#stamp_list_button {
-    /* 仮の位置です。センタリングしたい場合には親要素(div)を追加するとか */
-    margin-left: 20px;
+.stamp_list_button_area {
+    text-align: center;
 }
 
 .stamped_list {
