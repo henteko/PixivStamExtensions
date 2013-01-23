@@ -29,7 +29,7 @@ $(document).ready(function () {
             class: "ui-button",
             id: "stamp_list_button"
         });
-        $stamp_list_button.text("スタンプを投げる");
+        $stamp_list_button.text("スタンプを投稿する");
         $stamp_list_button_area.append($stamp_list_button);
 
         $stamp.append($stamp_list_button_area);
