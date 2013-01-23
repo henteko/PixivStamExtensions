@@ -27,8 +27,17 @@ body {
     width: 158px;
 }
 
+.illust_area {
+    position:relative;
+    overflow:hidden;
+}
+
 .illust_area ul {
     list-style: none;
+
+    position:relative;
+    left:50%;
+    float:left;
 }
 
 .illust_area li {
@@ -39,6 +48,9 @@ body {
     padding: 5px 0;
     text-align: center;
     width: 158px;
+
+    position:relative;
+    left:-50%;
 }
 
 .illust_area a {
