@@ -142,7 +142,9 @@ function setStamp(data, new_flag) {
             var $user_stampeds = $(".user_stamped");
             $.each($user_stampeds, function(id) {
                 var $_user_stamped = $($user_stampeds[id]);
-                if($_user_stamped.css("display") == "none") $_user_stamped.show(); 
+                if($_user_stamped.css("display") == "none" && $_user_stamped.attr("id") != "stamp_plus") {
+                    $_user_stamped.show(); 
+                }
             });
             $(this).hide();
         });
