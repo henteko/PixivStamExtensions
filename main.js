@@ -101,7 +101,7 @@ function setStamp(data, new_flag) {
 
             //ここからアニメーションの設定
             $user_stamped.css("opacity", 0);
-            $user_stamped.css("zoom", 4);
+            $user_stamped.css("zoom", 1.5);
             $user_stamped.css("position", "absolute");
 
             var $delete_user_icon = $("<a>", {
@@ -140,7 +140,7 @@ function setStamp(data, new_flag) {
             $user_stamped.animate({
                 opacity: 1,
                 zoom: 1
-            }, 800, function() {
+            }, 100, function() {
                 $("#delete_area").remove();
                 $(this).css("position", "relative");
             });
