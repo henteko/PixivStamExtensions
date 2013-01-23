@@ -8,13 +8,14 @@
             "default_title": "pixivスタンプ"
         },
         "background": {
-             "scripts": ["lib/jquery.min.js", "background.js"],
-             "persistent": false
+             "scripts": ["lib/jquery.min.js", "background.js"]
          },
         "permissions": [ 
+            "webRequest",
+            "webRequestBlocking",
             "http://henteko07.com:4000/*",
             "http://www.pixiv.net/*",
-            "https://www.pixiv.net/*"
+            "http://*.pixiv.net/*"
         ],
         "content_scripts": [
         {
