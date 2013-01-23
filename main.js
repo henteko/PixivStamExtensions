@@ -73,6 +73,8 @@ function setStamp(data, new_flag) {
             class: "stamped_icon"
         });
         var $img = $("<img>", {
+            class: "ui-tooltip",
+            "data-tooltip": "スタンプ情報へ",
             src: data['illusts'][id].stamp.stamp_icon_url,
             "stamp_id": data['illusts'][id].stamp.stamp_id
         });
