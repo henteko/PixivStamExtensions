@@ -87,3 +87,9 @@ a.stamp_user_icon img {
 .stamp_icon:hover {
     border-color: #90A6B6;
 }
+
+.show_stamp_area {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-right: 50px;
+}

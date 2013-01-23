@@ -115,9 +115,24 @@ function setStamp(data, new_flag) {
         $user_stamped.css("display", "none"); //最初は非表示
         $user_stamped.append($plus);
         $stamped_list.prepend($user_stamped);
+
+        $("div.stamp").append($stamped_list);
     }
 
-    $("div.stamp").append($stamped_list);
+    if(data['max_flag']) {
+        //全てのスタンプを表示出来ないとき、全てのスタンプを見るボタンの追加
+        var $show_stamp = $("<div>",{
+            class: "ui-button",
+            id: "show_stamp"
+        });
+        $show_stamp.text("全てのスタンプを見る");
+        var $show_stamp_area =  $("<div>", {
+            class: "show_stamp_area"
+        });
+        $show_stamp_area.append($show_stamp);
+        $stamped_list.after($show_stamp_area);
+    }
+
 }
 
 //スタンプリストをセットします
@@ -177,6 +192,7 @@ function postStamp(pixiv_user, pixiv_context, self) {
         $.get(url, function(data) {
             if(data.success == true) {
                 var new_data = {
+                    'max_flag': false,
                     'illusts' :[{
                         "user_icon_url": img_url, 
                         "user_id": pixiv_user.id,
