@@ -86,6 +86,7 @@ function setStamp(data, new_flag) {
         $user_stamped.append($user_icon);
 
         if(new_flag) {
+            //新しいスタンプ設置時は、＋エリアの後ろに追加
             var $stamp_plus = $("#stamp_plus");
             $stamp_plus.after($user_stamped);
         }else {
@@ -102,6 +103,8 @@ function setStamp(data, new_flag) {
         var $plus = $("<img>", {
             src: "http://henteko07.com/pixiv_stamp/plus.png"
         });
+
+        $user_stamped.css("display", "none"); //最初は非表示
         $user_stamped.append($plus);
         $stamped_list.prepend($user_stamped);
     }
@@ -143,6 +146,7 @@ function setStampList(data) {
     $stamp_list_button.after($stamp_list);
     $stamp_list_button.click(function() {
         $stamp_list.slideDown("slow");
+        $("#stamp_plus").show(); //＋エリア表示
         $stamp_list_button.css("display", "none");
     });
 }
