@@ -44,9 +44,25 @@ function setIllustImage(illust_id) {
             href: url
         });
         var $illust_img = $(data).find(".works_display").find("img");
+        var illust_url = $illust_img.attr("src");
+
+        var url_split = illust_url.split("/");
+        var mobile_url = "";
+
+        //mobileの挿入
+        $.each(url_split, function(id) {
+            mobile_url += url_split[id] + "/";
+            if(id == 5) mobile_url += "mobile/"
+        });
+        mobile_url = mobile_url.replace( /_m/, "_128x128" ); //_m を _128×128 に
+        mobile_url = mobile_url.slice(0, -1); //最後の / を削除
+
+        $illust_img.attr("src", mobile_url);
+
         $illust_img.attr("class", "illust");
         $a.append($illust_img);
-        $a.append($illust_img.attr("title"));
+        $a.append($("<p>").append($illust_img.attr("title")));
+
         $li.append($a);
         $(".illust_area").find("ul").append($li);
     });

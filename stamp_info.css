@@ -53,6 +53,16 @@ body {
     left:-50%;
 }
 
+.illust_area li a {
+}
+.illust_area li a p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
 .illust_area a {
     text-decoration: none;
     color: #333333;
