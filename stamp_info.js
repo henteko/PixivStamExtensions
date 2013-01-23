@@ -5,7 +5,11 @@ $(function() {
     //重複削除の処理してます
     var count = 0;
     var illusts_id = new Array();
+    var illusts_url = new Array();
+    var illusts_title = new Array();
     illusts_id[count] = $json.illusts[count].illust_id;
+    illusts_url[count] = $json.illusts[count].illust_url;
+    illusts_title[count] = $json.illusts[count].illust_title;
     count++;
     $.each($json.illusts, function(id) {
         var flag = true;
@@ -18,12 +22,14 @@ $(function() {
 
         if(flag) {
             illusts_id[count] = illust_id; 
+            illusts_url[count] = $json.illusts[id].illust_url;
+            illusts_title[count] = $json.illusts[id].illust_title;
             count++;
         }
     });
 
     $.each(illusts_id, function(id) {
-        setIllustImage(illusts_id[id]);
+        setIllustImage(illusts_id[id], illusts_url[id], illusts_title[id]);
     });
 });
 
@@ -35,37 +41,27 @@ function setImage(url, class_name, search) {
     $(search).append($img);
 }
 
-function setIllustImage(illust_id) {
-    var url = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + illust_id;
-    $.get(url, function(data) {
+function setIllustImage(illust_id, url, title) {
         var $li = $("<li>");
         var $a = $("<a>", {
             target: "_blank",
-            href: url
+            href: "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + illust_id
         });
-        var $illust_img = $(data).find(".works_display").find("img");
-        var illust_url = $illust_img.attr("src");
 
-        var url_split = illust_url.split("/");
-        var mobile_url = "";
-
-        //mobileの挿入
-        $.each(url_split, function(id) {
-            mobile_url += url_split[id] + "/";
-            if(id == 5) mobile_url += "mobile/"
+        var $illust_img = $("<img>", {
+            class: "illust",
+            src: url,
+            alt: title,
+            title: title,
+            border: 0
         });
-        mobile_url = mobile_url.replace( /_m/, "_128x128" ); //_m を _128×128 に
-        mobile_url = mobile_url.slice(0, -1); //最後の / を削除
 
-        $illust_img.attr("src", mobile_url);
-
-        $illust_img.attr("class", "illust");
         $a.append($illust_img);
-        $a.append($("<p>").append($illust_img.attr("title")));
+        $a.append($("<p>").append(title));
 
         $li.append($a);
         $(".illust_area").find("ul").append($li);
-    });
+
 }
 
 function jsonParse(string) {
