@@ -185,7 +185,7 @@ function setStampList(data) {
 
     $stamp_list_button.after($stamp_list);
     $stamp_list_button.click(function() {
-        $stamp_list.slideDown("slow");
+        $stamp_list.css("display", "block");
         $("#stamp_plus").show(); //＋エリア表示
         $stamp_list_button.css("display", "none");
     });
