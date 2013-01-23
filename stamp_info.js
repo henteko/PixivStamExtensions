@@ -39,7 +39,10 @@ function setIllustImage(illust_id) {
     var url = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + illust_id;
     $.get(url, function(data) {
         var $li = $("<li>");
-        var $a = $("<a>", {href: url});
+        var $a = $("<a>", {
+            target: "_blank",
+            href: url
+        });
         var $illust_img = $(data).find(".works_display").find("img");
         $illust_img.attr("class", "illust");
         $a.append($illust_img);
