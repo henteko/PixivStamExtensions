@@ -218,7 +218,6 @@ function postStamp(pixiv_user, pixiv_context, self) {
                         }]
                     };
                 setStamp(new_data, true);
-                alert("スタンプを投稿しました");
             }
         });
     });
