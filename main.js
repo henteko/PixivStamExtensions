@@ -52,6 +52,8 @@ function setStamp(data, new_flag) {
     if($stamped_list.length == 0) {
         $stamped_list = $("<div>", {class: "stamped_list"});
     }
+
+    var MAX_STAMP_NUM = 9;
     $.each(data['illusts'], function(id) {
         var $user_stamped = $("<span>", {
             class: "user_stamped"
@@ -100,6 +102,10 @@ function setStamp(data, new_flag) {
         }else {
             $stamped_list.append($user_stamped);
         }
+
+        if(MAX_STAMP_NUM <= id) {
+            $user_stamped.css("display", "none");
+        }
     });
 
     if(!new_flag) {
@@ -131,6 +137,15 @@ function setStamp(data, new_flag) {
         });
         $show_stamp_area.append($show_stamp);
         $stamped_list.after($show_stamp_area);
+
+        $show_stamp.click(function() {
+            var $user_stampeds = $(".user_stamped");
+            $.each($user_stampeds, function(id) {
+                var $_user_stamped = $($user_stampeds[id]);
+                if($_user_stamped.css("display") == "none") $_user_stamped.show(); 
+            });
+            $(this).hide();
+        });
     }
 
 }
