@@ -52,20 +52,20 @@ function setStamp(data, new_flag) {
     if($stamped_list.length == 0) {
         $stamped_list = $("<div>", {class: "stamped_list"});
     }
-    $.each(data, function(id) {
+    $.each(data['illusts'], function(id) {
         var $user_stamped = $("<span>", {
             class: "user_stamped"
         });
 
         var $user_icon = $("<a>", {
             class: "stamp_user_icon",
-            href: USER_PAGE_URL + data[id].user_id
+            href: USER_PAGE_URL + data['illusts'][id].user_id
         });
         //ユーザーアイコンの表示
         var $user_icon_img = $("<img>", {
             class: "ui-tooltip",
-            "data-tooltip": data[id].user_name ? data[id].user_name : "名無しさん",
-            src: data[id].user_icon_url
+            "data-tooltip": data['illusts'][id].user_name ? data['illusts'][id].user_name : "名無しさん",
+            src: data['illusts'][id].user_icon_url
         });
         $user_icon.append($user_icon_img);
 
@@ -73,8 +73,8 @@ function setStamp(data, new_flag) {
             class: "stamped_icon"
         });
         var $img = $("<img>", {
-            src: data[id].stamp.stamp_icon_url,
-            "stamp_id": data[id].stamp.stamp_id
+            src: data['illusts'][id].stamp.stamp_icon_url,
+            "stamp_id": data['illusts'][id].stamp.stamp_id
         });
         $stamp_link.append($img);
 
@@ -96,7 +96,7 @@ function setStamp(data, new_flag) {
             var $stamp_plus = $("#stamp_plus");
             $stamp_plus.after($user_stamped);
         }else {
-            $stamped_list.prepend($user_stamped);
+            $stamped_list.append($user_stamped);
         }
     });
 
@@ -174,12 +174,14 @@ function postStamp(pixiv_user, pixiv_context, self) {
 
         $.get(url, function(data) {
             if(data.success == true) {
-                var new_data = [{
-                    "user_icon_url": img_url, 
-                    "user_id": pixiv_user.id,
-                    "user_name": user_name,
-                    "stamp": {"stamp_icon_url": $(self).attr("src"), "stamp_id": $(self).attr("stamp_id")}
-                }];
+                var new_data = {
+                    'illusts' :[{
+                        "user_icon_url": img_url, 
+                        "user_id": pixiv_user.id,
+                        "user_name": user_name,
+                        "stamp": {"stamp_icon_url": $(self).attr("src"), "stamp_id": $(self).attr("stamp_id")}
+                        }]
+                    };
                 setStamp(new_data, true);
                 alert("スタンプを投稿しました");
             }
