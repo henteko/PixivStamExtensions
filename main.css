@@ -77,6 +77,7 @@ a.stamp_user_icon img {
 
 .stamp_icon {
     width: 60px;
+    height: 60px;
     cursor: pointer;
     padding: 2px;
     border-radius: 6px;
