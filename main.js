@@ -215,7 +215,7 @@ function postStamp(pixiv_user, pixiv_context, self) {
         "&user_icon_url=" + img_url + 
         "&user_name=" + user_name +
         "&stamp_id=" + $(self).attr("stamp_id") +
-        "&illust_title=" + getIllustTitle() +  
+        "&illust_title=" + pixiv_context.illustTitle +  
         "&illust_url=" + getIllustMobileURL(); 
 
         $.get(url, function(data) {
@@ -249,9 +249,4 @@ function getIllustMobileURL() {
     mobile_url = mobile_url.slice(0, -1); //最後の / を削除
 
     return mobile_url;
-}
-
-function getIllustTitle() {
-    var $illust_img = $(".works_display").find("img");
-    return $illust_img.attr("title");
 }
