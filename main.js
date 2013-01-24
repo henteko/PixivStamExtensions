@@ -100,24 +100,13 @@ function setStamp(data, new_flag) {
             var $stamp_plus = $("#stamp_plus");
 
             //ここからアニメーションの設定
-            var $delete_user_stamped = $user_stamped.clone();
-            $delete_user_stamped.css("opacity", 0);
-            $delete_user_stamped.attr("id", "delete_area");
-
             $user_stamped.css("opacity", 0);
-            $user_stamped.css("zoom", 1.5);
-            $user_stamped.css("position", "absolute");
 
-            $stamp_plus.after($delete_user_stamped);
             $stamp_plus.after($user_stamped);
 
             $user_stamped.animate({
-                opacity: 1,
-                zoom: 1
-            }, 100, function() {
-                $("#delete_area").remove();
-                $(this).css("position", "relative");
-            });
+                opacity: 1
+            }, 600);
 
         }else {
             $stamped_list.append($user_stamped);
