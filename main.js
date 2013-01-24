@@ -100,39 +100,13 @@ function setStamp(data, new_flag) {
             var $stamp_plus = $("#stamp_plus");
 
             //ここからアニメーションの設定
+            var $delete_user_stamped = $user_stamped.clone();
+            $delete_user_stamped.css("opacity", 0);
+            $delete_user_stamped.attr("id", "delete_area");
+
             $user_stamped.css("opacity", 0);
             $user_stamped.css("zoom", 1.5);
             $user_stamped.css("position", "absolute");
-
-            var $delete_user_icon = $("<a>", {
-                class: "stamp_user_icon",
-                href: USER_PAGE_URL + data['illusts'][id].user_id
-            });
-            var $delete_user_icon_img = $("<img>", {
-                class: "ui-tooltip",
-                "data-tooltip": data['illusts'][id].user_name ? data['illusts'][id].user_name : "名無しさん",
-                src: data['illusts'][id].user_icon_url
-            });
-            $delete_user_icon.append($delete_user_icon_img);
-
-            var $delete_stamp_link = $("<a>", {
-                class: "stamped_icon"
-            });
-            var $delete_img = $("<img>", {
-                class: "ui-tooltip",
-                "data-tooltip": "スタンプ情報へ",
-                src: data['illusts'][id].stamp.stamp_icon_url,
-                "stamp_id": data['illusts'][id].stamp.stamp_id
-            });
-            $delete_stamp_link.append($delete_img);
-
-            var $delete_user_stamped = $("<span>", {
-                class: "user_stamped",
-                id: "delete_area"
-            });
-            $delete_user_stamped.css("opacity", 0);
-            $delete_user_stamped.append($delete_stamp_link);
-            $delete_user_stamped.append($delete_user_icon);
 
             $stamp_plus.after($delete_user_stamped);
             $stamp_plus.after($user_stamped);
